@@ -7,13 +7,33 @@ class Stopwatch {
         this.print(this.times);
     }
     
-    //RESET METHOD
+    // RESET METHOD
     reset(){
         this.times={
             minutes:0,
             seconds:0,
             miliseconds:0,
         };
+    }
+    
+    // PRINT METHOD
+    print() {
+        this.display.innerText=this.format(this.times);
+    }
+    
+    // FORMAT METHOD
+    format(times) {
+        return `${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
+    }
+    
+    // FUNCTION WHICH ADDS "0" TO RESULT 
+    function pad0(value) {
+        let result=value.toString{};
+        if (result.length<2) {
+            result ='0' + result;
+        }
+        
+        return result;
     }
 }
 
